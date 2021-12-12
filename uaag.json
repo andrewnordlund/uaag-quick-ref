@@ -1,0 +1,1881 @@
+{
+	"title" : "UAAG",
+	"description" : "User Agent Accessibility Guidelines",
+	"version" : "2.0",
+	"url" : "https://www.w3.org/TR/UAAG20/",
+	"base_url" : "https://www.w3.org/TR/UAAG20/",
+	"reference_base_url" : "https://www.w3.org/TR/2015/NOTE-UAAG20-Reference-20151215/",
+	"principles" : 
+	[
+		{
+			"ref_id" : "1",
+			"title" : "Ensure that the user interface and rendered content are perceivable",
+			"url_fragment" : "principle-perceivable",
+			"notes" : null,
+			"guidelines" : 
+			[
+				{
+					"ref_id" : "1.1",
+					"title" : "Provide access to alternative content",
+					"url_fragment" : "gl-access-alternative-content",
+					"summary" : "The user can choose to render any type of alternative content available (1.1.1) with an indicator that the alternative content is present (1.1.2) or a placeholder replacing the non-text content (1.1.3) . It's recommended that users can also choose at least one alternative, such as alt text, to be displayed by default (1.1.5). It's recommended that caption text or sign language alternative cannot obscure the video or the controls (1.1.4) and that the user can configure the text (1.1.6), size and position of media alternatives (1.1.7).",
+					"notes" : null,
+					"success_criteria" : [
+						{
+							"ref_id" : "1.1.1",
+							"title" : "Render Alternative Content",
+							"description" : "The user can choose to render any type of recognized alternative content that is present for a content element.",
+							"level" : "A",
+							"url_fragment" : "sc_111",
+							"notes" : [
+								{ "content" : "It is recommended that the user agent allow the user to choose whether the alternative content replaces or supplements the original content element." }
+							],
+							"special_cases" : null
+						},
+						{
+							"ref_id" : "1.1.2",
+							"title" : "Indicate Unrendered Alternative Content:",
+							"description" : "The user can specify that indicators be displayed along with rendered content when recognized unrendered alternative content is present.",
+							"level" : "A",
+							"url_fragment" : "sc_112",
+							"notes" : null,
+							"special_cases" : null
+						},
+						{
+							"ref_id" : "1.1.3",
+							"title" : "Replace Non-Text Content",
+							"description" : "The user can request a placeholder that incorporates recognized text alternative content instead of recognized non-text content, until explicit user request to render the non-text content.",
+							"level" : "A",
+							"url_fragment" : "sc_113",
+							"notes" : null,
+							"special_cases" : null
+						},
+						{
+							"ref_id" : "1.1.4",
+							"title" : "Facilitate Clear Display of Alternative Content for Time-based Media",
+							"description" : "For recognized on-screen alternative content for time-based media (e.g. captions, sign language video), the following are all true",
+							"level" : "A",
+							"url_fragment" : "sc_114",
+							"notes" : [
+								{ "content" : "Depending on the screen area available, the display of the primary time-based media can need to be reduced in size to meet this requirement. " }
+							],
+							"special_cases" : [
+								{
+									"type": "all_true",
+									"title": "Don't obscure controls",
+									"description": "Displaying time-based media alternatives doesn't obscure recognized controls for the primary time-based media."
+								},
+								{
+									"type": "all_true",
+									"title": "Don't obscure primary media",
+									"description": "The user can specify that displaying time-based media alternatives doesn't obscure the primary time-based media. "
+								}
+							]
+						},
+						{
+							"ref_id" : "1.1.5",
+							"title" : "Provide Configurable Alternative Content Defaults",
+							"description" : "The user can specify which type(s) of alternative content to render by default for each type of non-text content, including time based media.",
+							"level" : "AA",
+							"url_fragment" : "sc_115",
+							"notes" : null,
+							"special_cases" : null
+						},
+						{
+							"ref_id" : "1.1.6",
+							"title" : "Use Configurable Text for Time-based Media Captions",
+							"description" : "For recognized on-screen alternative content for time-based media (e.g. captions, sign language video), the user can configure recognized text within time-based media alternatives (e.g. captions) in conformance with 1.4.1.",
+							"level" : "AA",
+							"url_fragment" : "sc_116",
+							"notes" : null,
+							"special_cases" : null
+						},
+						{
+							"ref_id" : "1.1.7",
+							"title" : "Allow Resize and Reposition of Time-based Media Alternatives",
+							"description" : "The user can configure recognized alternative content for time-based media (e.g. captions, sign language video) as follows",
+							"level" : "AAA",
+							"url_fragment" : "sc_117",
+							"notes" : [
+								{
+									"content" : "Depending on the screen area available, the display of the primary time-based media can need to be reduced in size or hidden to meet this requirement.",
+									"content" : "Implementation can involve displaying alternative content for time-based media in a separate viewport, but this is not required."
+								}
+							],
+							"special_cases" : [
+								{
+									"type": "all_true",
+									"title": "Resize",
+									"description": "The user can resize alternative content for time-based media to at least 50% of the size of the top-level viewports."
+				    				},
+								{
+									"type": "all_true",
+									"title": "Reposition",
+									"description": "The user can reposition alternative content for time-based media to two or more of the following: above, below, to the right, to the left, and overlapping the primary time-based media."
+				    				}
+							]
+						}
+					]
+				},
+				{
+					"ref_id" : "1.2",
+					"title" : "Repair missing content",
+					"url_fragment": "gl-missing-alt",
+					"summary" : "The user can request useful alternative content when the author fails to provide it. For example, showing metadata in place of missing or empty (1.2.1) alt text. The user can ask the browser to predict missing structural information, such as field labels, table headings or section headings (1.2.2).",
+					"notes" : null,
+					"success_criteria" : [
+						{
+							"ref_id" : "1.2.1",
+							"title" : "Support Repair by Assistive Technologies",
+							"description" : "If text alternatives for non-text content are missing or empty, the user agent doesn't attempt to repair the text alternatives by substituting text values that are also available to assistive technologies (e.g. image file name)",
+							"level" : "AA",
+							"url_fragment" : "sc_121",
+							"notes" : null,
+							"special_cases" : null
+						}
+					]
+				},
+				{
+					"ref_id" : "1.3",
+					"title" : "Provide highlighting for selection, keyboard focus, enabled elements, visited links",
+					"url_fragment": "gl-interaction-highlight",
+					"summary" : "The user can visually distinguish between selected, focused, and enabled items; and recently visited links (1.3.1); with a choice of highlighting options that at least include foreground and background colors, and border color and thickness (1.3.2).",
+					"notes" : null,
+					"success_criteria" : [
+						{
+							"ref_id" : "1.3.1",
+							"title" : "Distinguishable Highlighting",
+							"description" : "The user can have the following types of content uniquely highlighted, overriding any values specified by the author: ",
+							"level" : "A",
+							"url_fragment" : "sc_131",
+							"notes" : null,
+							"special_cases" : [
+								{
+									"type": "all_true",
+									"title": "Selection"
+				    				},
+								{
+									"type": "all_true",
+									"title": "In-page search results"
+				    				},
+								{
+									"type": "all_true",
+									"title": "Active keyboard focus (indicated by focus cursors and/or text cursors)"
+				    				},
+								{
+									"type": "all_true",
+									"title": "Unvisited links"
+				    				},
+								{
+									"type" : "all_true",
+									"title" : "Visited links"
+								}
+							]
+						},
+						{
+							"ref_id" : "1.3.2",
+							"title" : "Highlighting Options",
+							"description" : "The user can set all of the following characteristics of selection highlighting, overriding any values specified by the author:",
+							"level" : "AA",
+							"url_fragment" : "sc_132",
+							"notes" : null,
+							"special_cases" : [
+								{
+									"type": "all_true",
+									"title": "Foreground color"
+				    				},
+								{
+									"type": "all_true",
+									"title" : "Background color"
+				    				}
+							]
+						},
+						{
+							"ref_id" : "1.3.3",
+							"title" : "Highlighting Active Keyboard Focus",
+							"description" : "The user can set all of the following characteristics of active keyboard focus highlighting, overriding any values specified by the author:",
+							"level" : "AA",
+							"url_fragment" : "sc_133",
+							"notes" : null,
+							"special_cases" : [
+								{
+									"type": "all_true",
+									"title": "Foreground color"
+				    				},
+								{
+									"type": "all_true",
+									"title" : "Background color"
+				    				},
+								{
+									"type": "all_true",
+									"title": "Border (color, style, and thickness)"
+				    				},
+								{
+									"type": "all_true",
+									"title" : "Text cursor blink rate"
+				    				}
+							]
+						},
+						{
+							"ref_id" : "1.3.4",
+							"title" : "Distinguishing Enabled Elements",
+							"description" : "The user can set all of the following characteristics of enabled element highlighting, overriding any values specified by the author:",
+							"level" : "AA",
+							"url_fragment" : "sc_134",
+							"notes" : null,
+							"special_cases" : [
+								{
+									"type": "all_true",
+									"title": "Foreground color"
+				    				},
+								{
+									"type": "all_true",
+									"title" : "Background color"
+				    				},
+								{
+									"type": "all_true",
+									"title": "Border (color, style, and thickness)"
+				    				}
+							]
+						},
+						{
+							"ref_id" : "1.3.5",
+							"title" : "Distinguishing Enabled Elements",
+							"description" : "The user can set all of the following characteristics for visited links and separately for unvisited links, overriding any values specified by the author:",
+							"level" : "AA",
+							"url_fragment" : "sc_135",
+							"notes" : null,
+							"special_cases" : [
+								{
+									"type": "all_true",
+									"title": "Foreground color"
+				    				},
+								{
+									"type": "all_true",
+									"title" : "Underline"
+				    				}
+							]
+						}
+					]
+				},
+				{
+					"ref_id" : "1.4",
+					"title" : "Provide text configuration",
+					"url_fragment": "gl-text-config",
+					"summary" : "The user can set text scale, color, style, line spacing, and font family globally (1.4.1, Level A). It is recommended that the user agent implement the user-selected text configuration settings of the platform (1.4.5 Level AA), users set text size, color, line spacing, text style and font family for element types (1.4.2, Level AA); set character spacing, justification and margin sizes globally (1.4.3, Level AA); set capitalization, hyphenation, and borders globally (1.4.6, Level AAA); and print configured and reflowed text (1.4.4 Level AA).",
+					"notes" : [
+						{
+							"content" : "The success criteria in guideline 1.4 can be met through user stylesheets. For platforms without user stylesheets, text configuration needs to be provided to users through the user agent's main user interface or via an add-on."
+						},
+						{
+							"content" : "Users have varying needs for text size and spacing. Therefore, it’s recommended that user agents provide a wider range of values, and a greater number of increments, to allow the user to adjust the view for their current task."
+						}
+					],
+					"success_criteria" : [
+						{
+							"ref_id" : "1.4.1",
+							"title" : "Basic text formatting (Globally)",
+							"description" : "The user can globally set all of the following characteristics of visually rendered text content:",
+							"level" : "A",
+							"url_fragment" : "sc_141",
+							"notes" : null,
+							"special_cases" : [
+								{
+									"type": "all_true",
+									"title": "Text scale with preserved size distinctions (e.g. keeping headings proportional to main font)"
+				    				},
+								{
+									"type": "all_true",
+									"title" : "Text color and background color, choosing from all platform color options"
+				    				},
+								{
+									"type": "all_true",
+									"title": "Font family, choosing from all installed fonts"
+				    				},
+								{
+									"type": "all_true",
+									"title" : "Line spacing, choosing from a range with at least three values up to at least 2 times the default"
+				    				},
+								{
+									"type": "all_true",
+									"title" : "Text style, choosing to turn on/off underline, italic, bold"
+				    				}
+
+							]
+						},
+						{
+							"ref_id" : "1.4.2",
+							"title" : "Basic text formatting (by Element)",
+							"description" : "The user can set all of the following characteristics of visually rendered text content for text element types including at least headings, input fields, and links:",
+							"level" : "AA",
+							"url_fragment" : "sc_142",
+							"notes" : null,
+							"special_cases" : [
+								{
+									"type": "all_true",
+									"title": "Text size (e.g. 18 point) or scale (e.g. 150%)"
+				    				},
+								{
+									"type": "all_true",
+									"title" : "Text color and background color, choosing from all platform color options"
+				    				},
+								{
+									"type": "all_true",
+									"title": "Font family, choosing from at least all installed fonts"
+				    				},
+								{
+									"type": "all_true",
+									"title" : "Line spacing, choosing from a range with at least three values up to at least 2 times the default"
+				    				},
+								{
+									"type": "all_true",
+									"title" : "Text style, choosing to turn on/off underline, italic, bold"
+				    				},
+								{
+									"type": "all_true",
+									"title" : "Margins around blocks of text"
+				    				},
+								{
+									"type": "all_true",
+									"title" : "Borders"
+				    				}
+
+
+							]
+						},
+						{
+							"ref_id" : "1.4.3",
+							"title" : "Blocks of text (Globally)",
+							"description" : "The user can globally set all of the following characteristics of visually rendered blocks of text: ",
+							"level" : "AA",
+							"url_fragment" : "sc_143",
+							"notes" : null,
+							"special_cases" : [
+								{
+									"type": "all_true",
+									"title": "Character spacing, choosing from a range with at least 5 values"
+				    				},
+								{
+									"type": "all_true",
+									"title" : "Justification (left or right, including turning off full justification)"
+				    				},
+								{
+									"type": "all_true",
+									"title": "Margins around blocks of text"
+				    				},
+								{
+									"type": "all_true",
+									"title" : "Borders"
+				    				}
+							]
+						},
+						{
+							"ref_id" : "1.4.4",
+							"title" : "Configured and Reflowed Text Printing",
+							"description" : "The user can print the rendered content, and the following are all true:",
+							"level" : "AA",
+							"url_fragment" : "sc_144",
+							"notes" : null,
+							"special_cases" : [
+								{
+									"type": "all_true",
+									"title": "any visual, non-time-based, rendered content can be printed"
+				    				},
+								{
+									"type": "all_true",
+									"title" : "the user can choose between available printing devices"
+				    				},
+								{
+									"type": "all_true",
+									"title": "the user can have content printed as it is rendered on screen, reflecting any user scaling, highlighting, and other modifications"
+				    				},
+								{
+									"type": "all_true",
+									"title" : "the user can have printed content reflow as if the top-level viewports had been resized to match the horizontal dimension of the printing device's printable area"
+				    				}
+
+							]
+						},
+						{
+							"ref_id" : "1.4.5",
+							"title" : "Default to platform text settings",
+							"description" : "The user can specify that platform text settings be used as the default values for text configuration.",
+							"level" : "AA",
+							"url_fragment" : "sc_145",
+							"notes" : null,
+							"special_cases" : null
+						},
+						{
+							"ref_id" : "1.4.6",
+							"title" : "Advanced text formatting",
+							"description" : "The user can globally set all of the following characteristics of visually rendered blocks of text:",
+							"level" : "AAA",
+							"url_fragment" : "sc_146",
+							"notes" : [
+								{ "content" : "This success criterion does not apply to text entered as all caps. Content authors are encouraged to use styles instead of typing text as all caps." }
+							],
+							"special_cases" : [
+								{
+									"type": "all_true",
+									"title": "Capitalization (overriding upper case and small caps style)"
+				    				},
+								{
+									"type": "all_true",
+									"title" : "Word-breaking properties (e.g. auto-hyphenation)"
+				    				},
+								{
+									"type": "all_true",
+									"title": "Word spacing (choosing from a range of at least 5 values)"
+				    				}
+
+							]
+						}
+					]
+				},
+				{
+					"ref_id" : "1.5",
+					"title" : "Provide volume configuration",
+					"url_fragment": "gl-volume-config",
+					"summary" : "The user can adjust the volume of each audio track relative to the global volume level (1.5.1).",
+					"notes" : null,
+					"success_criteria" : [
+						{
+							"ref_id" : "1.5.1",
+							"title" : "Global Volume",
+							"description" : "The user can adjust the volume of each audio track independently of other tracks, relative to the global volume level set through operating environment mechanisms.",
+							"level" : "A",
+							"url_fragment" : "sc_151",
+							"notes" : null,
+							"special_cases" : null
+						}
+					]
+				},
+				{
+					"ref_id" : "1.6",
+					"title" : "Provide synthesized speech configuration",
+					"url_fragment": "gl-speech-config",
+					"summary" : "If synthesized speech is produced, the user can specify speech rate, volume, and voice (1.6.1, Level A), pitch and pitch range (1.6.2, Level AA), advanced synthesizer speech characteristics such as emphasis (1.6.3, Level AAA) and features such as spelling (1.6.3, Level AAA).",
+					"notes" : [
+					{ "content" : "If browsers provide speech output for mainstream users, they should make the speech configurable enough to be usable by a wide range of individuals. When an add-on adds speech output to the user agent, it becomes part of the user agent, and therefore should meet the requirements of 1.6." }
+					],
+					"success_criteria" : [
+						{
+							"ref_id" : "1.6.1",
+							"title" : "Speech Rate, Volume, and Voice",
+							"description" : "If synthesized speech is produced, the user can specify the following:",
+							"level" : "A",
+							"url_fragment" : "sc_161",
+							"notes" : null,
+							"special_cases" : [
+								{
+									"type": "all_true",
+									"title": "Speech rate"
+				    				},
+								{
+									"type": "all_true",
+									"title" : "Speech volume (independently of other sources of audio) "
+				    				},
+								{
+									"type": "all_true",
+									"title": "Voice, when more than one voice is available"
+				    				}
+
+							]
+						},
+						{
+							"ref_id" : "1.6.2",
+							"title" : "Speech Pitch and Range",
+							"description" : "If synthesized speech is produced, the user can specify the following if offered by the speech synthesizer:",
+							"level" : "AA",
+							"url_fragment" : "sc_162",
+							"notes" : [
+								{ "content" : "Because the technical implementations of text to speech engines vary (e.g. formant-based synthesis, concatenative synthesis), a specific engine may not support varying pitch or pitch range. A user agent should expose the availability of pitch and pitch range control if the currently selected or installed text to speech engine offers this capability." }
+							],
+							"special_cases" : [
+								{
+									"type": "all_true",
+									"title": "Pitch (average frequency of the speaking voice)"
+				    				},
+								{
+									"type": "all_true",
+									"title" : "Pitch range (variation in average frequency)"
+				    				}
+
+							]
+						},
+						{
+							"ref_id" : "1.6.3",
+							"title" : "Synthesized Speech Features",
+							"description" : "If synthesized speech is produced, the following features are provided:",
+							"level" : "AA",
+							"url_fragment" : "sc_163",
+							"notes" : null,
+							"special_cases" : [
+								{
+									"type": "all_true",
+									"title": "User-defined add-ons",
+									"description" : "to the synthesized speech dictionary."
+				    				},
+								{
+									"type": "all_true",
+									"title" : "\"Spell-out\"",
+									"description" : "text is spelled one character at a time, or according to language-dependent pronunciation rules."
+				    				},
+								{
+									"type": "all_true",
+									"title": "At least two ways of speaking numerals",
+									"description" : "spoken as individual digits and punctuation (e.g. \"one two zero three point five\" for 1203.5 or \"one comma two zero three point five\" for 1,203.5), and spoken as full numbers are spoken (e.g. \"one thousand, two hundred and three point five\" for 1203.5)"
+				    				},
+								{
+									"type": "all_true",
+									"title": "At least two ways of speaking punctuation",
+									"description" : "spoken literally, and with punctuation understood from speech characteristics like pauses."
+				    				}
+
+							]
+						},
+						{
+							"ref_id" : "1.6.4",
+							"title" : "Synthesized Speech Language",
+							"description" : "If synthesized speech is produced and more than one language is available, the user can change the language.",
+							"level" : "AA",
+							"url_fragment" : "sc_164",
+							"notes" : null,
+							"special_cases" : null
+						},
+						{
+							"ref_id" : "1.6.5",
+							"title" : "Advanced Speech Characteristics",
+							"description" : "If synthesized speech is produced, the user can adjust all of the speech characteristics provided by the speech synthesizer.",
+							"level" : "AAA",
+							"url_fragment" : "sc_165",
+							"notes" : null,
+							"special_cases" : null
+						}
+					]
+				},
+				{
+					"ref_id" : "1.7",
+					"title" : "Enable configuration of user stylesheets",
+					"url_fragment": "gl-style-sheets-config",
+					"summary" : "The user agent can disable author stylesheets (1.7.1, Level A) , supports user stylesheets or style mechanism (1.7.2, Level A), the user can choose which if any user-supplied (1.7.3, Level A) stylesheets to use, and the user can save stylesheets (1.7.4, Level AA).",
+					"notes" : null,
+					"success_criteria" : [
+						{
+							"ref_id" : "1.7.1",
+							"title" : "Disable Author Stylesheets",
+							"description" : "If the user agent supports a mechanism for author styles, the user can disable the use of author styles on the current page.",
+							"level" : "A",
+							"url_fragment" : "sc_171",
+							"notes" : null,
+							"special_cases" : null
+						},
+						{
+							"ref_id" : "1.7.2",
+							"title" : "Support User Stylesheet or User Style Modification Mechanism",
+							"description" : "If the user agent supports a mechanism for author styles, the user agent also provides a mechanism for a user styling to override author styling.",
+							"level" : "A",
+							"url_fragment" : "sc_172",
+							"notes" : null,
+							"special_cases" : null
+						},
+						{
+							"ref_id" : "1.7.3",
+							"title" : "Apply User Stylesheets",
+							"description" : "If user styles are supported, then the user can enable or disable user styles for:",
+							"level" : "A",
+							"url_fragment" : "sc_173",
+							"notes" : null,
+							"special_cases" : [
+								{
+									"type": "at_least_one",
+									"title": "All pages on specified websites, or"
+				    				},
+								{
+									"type": "at_least_one",
+									"title" : "All pages"
+				    				}
+
+							]
+						},
+						{
+							"ref_id" : "1.7.4",
+							"title" : "Save Copies of Stylesheets",
+							"description" : "The user can save copies of the stylesheets referenced by the current page. This allows the user to edit and load the copies as user stylesheets.",
+							"level" : "AA",
+							"url_fragment" : "sc_174",
+							"notes" : null,
+							"special_cases" : null
+						}
+					]
+				},
+				{
+					"ref_id" : "1.8",
+					"title" : "Help users to orient within, and control, windows and viewports",
+					"url_fragment": "gl-viewport-orient",
+					"summary" : " The user agent provides programmatic and visual cues to keep the user oriented. These include highlighting the viewport (1.8.1, Level A) and customizing the highlighting attributes (1.8.7, Level AA), keeping the focus within the viewport (1.8.2 & 1.8.6, Level A), resizing the viewport (1.8.8, Level A), providing scrollbars that identify when content is outside the visible region (1.8.3, Level A) and which portion is visible (1.8.4, Level A), changing the size of graphical content with zoom (1.8.5, Level A & 1.8.7, Level A), and restoring the focus and point of regard when the user returns to a previously viewed page (1.8.9, Level AA). The user can specify that all viewports have the same user interface elements (1.8.12, Level AA), if and how new viewports open (1.8.10, Level AA), and whether the new viewport automatically gets focus (1.8.11, Level AA). The user can specify that multi-column text blocks be reflowed into a single column (1.8.13, Level AA), that the user can override absolute layout dimensions (1.8.14, Level AA), and linearize the content (1.8.15, Level AA). The user can mark items in a web page and use shortcuts to navigate back to marked items. (1.8.16, Level AAA). ",
+					"notes" : null,
+					"success_criteria" : [
+						{
+							"ref_id" : "1.8.1",
+							"title" : "Highlight Viewport",
+							"description" : "The user can have the viewport with the input focus be highlighted.",
+							"level" : "A",
+							"url_fragment" : "sc_181",
+							"notes" : null,
+							"special_cases" : null
+						},
+						{
+							"ref_id" : "1.8.2",
+							"title" : "Move Viewport to Selection and Focus",
+							"description" : "When a viewport's selection or input focus changes, the viewport's content moves as necessary to ensure that the new selection or input focus location is at least partially in the visible portion of the viewport.",
+							"level" : "A",
+							"url_fragment" : "sc_182",
+							"notes" : null,
+							"special_cases" : null
+						},
+						{
+							"ref_id" : "1.8.3",
+							"title" : "Provide Viewport Scrollbars",
+							"description" : "When the rendered content extends beyond the viewport dimensions, users can have graphical viewports include scrollbars, overriding any values specified by the author.",
+							"level" : "A",
+							"url_fragment" : "sc_183",
+							"notes" : null,
+							"special_cases" : null
+						},
+						{
+							"ref_id" : "1.8.4",
+							"title" : "Indicate Viewport Position",
+							"description" : "The user can determine the viewport's position relative to the full extent of the rendered content.",
+							"level" : "A",
+							"url_fragment" : "sc_184",
+							"notes" : null,
+							"special_cases" : null
+						},
+						{
+							"ref_id" : "1.8.5",
+							"title" : "Allow Zoom",
+							"description" : "The user can rescale content within top-level graphical viewports as follows:",
+							"level" : "A",
+							"url_fragment" : "sc_185",
+							"notes" : null,
+							"special_cases" : [
+								{
+									"type": "all_true",
+									"title": "Zoom in",
+									"description" : "to 500% or more of the default size"
+				    				},
+								{
+									"type": "all_true",
+									"title" : "Zoom out",
+									"description" : "to 10% or less of the default size, so the content fits within the height or width of the viewport"
+				    				}
+
+							]
+
+						},
+						{
+							"ref_id" : "1.8.6",
+							"title" : "Maintain Point of Regard",
+							"description" : "The point of regard remains visible within the viewport when the viewport is resized, when content is zoomed or scaled, or when content formatting is changed.",
+							"level" : "A",
+							"url_fragment" : "sc_186",
+							"notes" : [
+								{ "content" : "When the point of regard is larger than the viewport, the user agent keeps visible the beginning of the point of regard according to the current language's reading order (e.g. top-left in English)" }
+							],
+							"special_cases" : null
+						},
+						{
+							"ref_id" : "1.8.7",
+							"title" : "Customize Viewport Highlighting",
+							"description" : "When highlighting viewports as specified by 1.8.1 Highlight Viewport, the user can customize attributes of the viewport highlighting mechanism (e.g. color and width of borders).",
+							"level" : "AA",
+							"url_fragment" : "sc_187",
+							"notes" : null,
+							"special_cases" : null
+						},
+						{
+							"ref_id" : "1.8.8",
+							"title" : "Allow Viewport Resize",
+							"description" : "The user can resize viewports within restrictions imposed by the platform, overriding any values specified by the author.",
+							"level" : "AA",
+							"url_fragment" : "sc_188",
+							"notes" : null,
+							"special_cases" : null
+						},
+						{
+							"ref_id" : "1.8.9",
+							"title" : "Provide Viewport History",
+							"description" : "For user agents that implement a history mechanism for top-level viewports (e.g. \"back\" button), the user can return to any state in the viewport history that is allowed by the content, including:",
+							"level" : "AA",
+							"url_fragment" : "sc_189",
+							"notes" : [
+								{ "content" : "It is recommended that selection also be restored."}
+							],
+							"special_cases" : [
+								{
+									"type": "all_true",
+									"title": "restored point of regard"
+				    				},
+								{
+									"type": "all_true",
+									"title" : "input focus, and"
+				    				},
+								{
+									"type": "all_true",
+									"title" : "user's form field entries"
+				    				}
+
+							]
+						},
+						{
+							"ref_id" : "1.81.0",
+							"title" : "Allow Top-Level Viewport Open on Request",
+							"description" : "The user can specify whether author content can open new top-level viewports (e.g. windows or tabs).",
+							"level" : "AA",
+							"url_fragment" : "sc_1810",
+							"notes" : null,
+							"special_cases" : null
+						},
+						{
+							"ref_id" : "1.81.1",
+							"title" : "Allow Top-Level Viewport Focus Control",
+							"description" : "If new top-level viewports (e.g. windows or tabs) are configured to open without explicit user request, the user can specify whether or not top-level viewports take the active keyboard focus when they open.",
+							"level" : "AA",
+							"url_fragment" : "sc_1811",
+							"notes" : null,
+							"special_cases" : null
+						},
+						{
+							"ref_id" : "1.81.2",
+							"title" : "Allow Same User Interface",
+							"description" : "The user can specify that all top-level viewports (e.g. windows or tabs) follow the defined user interface configuration.",
+							"level" : "AA",
+							"url_fragment" : "sc_1812",
+							"notes" : null,
+							"special_cases" : null
+						},
+						{
+							"ref_id" : "1.81.3",
+							"title" : "Multi-Column Text Reflow",
+							"description" : "The user can specify that recognized multi-column text blocks each be reflowed into a single column.",
+							"level" : "AA",
+							"url_fragment" : "sc_1813",
+							"notes" : [
+								{ "content" : "Some layouts may become unusable if author-specified layout is overridden. In this case, the user can turn linearization off and try another strategy. It is recommended that user agents provide a convenient way for the user to turn this behavior on and off." }
+							],
+							"special_cases" : null
+						},
+						{
+							"ref_id" : "1.81.4",
+							"title" : "Ignore Fixed Unit Dimensions",
+							"description" : "The user can have the user agent override author-specified unit dimensions.",
+							"level" : "AA",
+							"url_fragment" : "sc_184",
+							"notes" : null,
+							"special_cases" : null
+						},
+						{
+							"ref_id" : "1.81.5",
+							"title" : "Linearize Content",
+							"description" : "The user can have recognized content rendered as a single column, overriding author-specified formatting of columns, tables, and positioning.",
+							"level" : "AA",
+							"url_fragment" : "sc_1815",
+							"notes" : [
+								{ "content" : "Some layouts may become unusable if author-specified layout is overridden. In this case, the user can turn linearization off and try another strategy. It is recommended that user agents provide a convenient way for the user to turn this behavior on and off." }
+							],
+							"special_cases" : null
+						},
+						{
+							"ref_id" : "1.81.6",
+							"title" : "Provide Web Page Bookmarks",
+							"description" : "The user can mark items in a web page, then use shortcuts to navigate back to marked items. The user can specify whether a navigation mark disappears after a session, or is persistent across sessions.",
+							"level" : "AAA",
+							"url_fragment" : "sc_186",
+							"notes" : null,
+							"special_cases" : null
+						}
+					]
+				},
+				{
+					"ref_id" : "1.9",
+					"title" : "Provide alternative views",
+					"url_fragment": "gl-alternative-views",
+					"summary" : "The user can view the source of content (1.9.2, Level AAA), and an outline view of content. (1.9.1, Level AA).",
+					"notes" : null,
+					"success_criteria" : [
+						{
+							"ref_id" : "1.9.1",
+							"title" : "Outline View",
+							"description" : "Users can view a navigable outline of the headings in rendered content that allows focus to be moved to the corresponding element in the main viewport.",
+							"level" : "AA",
+							"url_fragment" : "sc_191",
+							"notes" : [
+								{ "content" : "An outline view might also include other named elements such as document landmarks." }
+							],
+							"special_cases" : null
+						},
+						{
+							"ref_id" : "1.9.2",
+							"title" : "Source View",
+							"description" : "The user can view all source text that is available to the user agent.",
+							"level" : "AAA",
+							"url_fragment" : "sc_192",
+							"notes" : null,
+							"special_cases" : null
+						}
+					]
+				},
+				{
+					"ref_id" : "1.10",
+					"title" : "Provide element information",
+					"url_fragment": "gl-info-link",
+					"summary" : "The user can access information about relationships between elements (e.g. form labels, table headers) (1.10.1, Level AA), and extended link information (e.g. title, internal vs. external) (1.10.2, Level AAA)",
+					"notes" : null,
+					"success_criteria" : [
+						{
+							"ref_id" : "1.10.1",
+							"title" : "Show Related Elements",
+							"description" : "The user can access the information from explicitly-defined relationships in the content, including at least the following:",
+							"level" : "AA",
+							"url_fragment" : "sc_1101",
+							"notes" : null,
+							"special_cases" : [
+								{
+									"type": "at_least_one",
+									"title": "calculated accessible name for images"
+				    				},
+								{
+									"type": "at_least_one",
+									"title" : "calculated accessible name for controls (e.g. form fields, buttons)"
+				    				},
+								{
+									"type": "at_least_one",
+									"title": "caption for a table"
+				    				},
+								{
+									"type": "at_least_one",
+									"title" : "row and column labels for a table cell"
+				    				}
+
+							]
+						},
+						{
+							"ref_id" : "1.10.2",
+							"title" : "Show Element Hierarchy",
+							"description" : "The user can determine the path of element nodes going from the root element of the element hierarchy to the currently focused or selected element.",
+							"level" : "AAA",
+							"url_fragment" : "sc_1102",
+							"notes" : null,
+							"special_cases" : null
+						}
+					]
+				}
+			]
+		},
+		{
+			"ref_id" : "2",
+			"title" : "Ensure that the user interface is operable",
+			"url_fragment" : "principle-operable",
+			"notes" : [
+				{ "content" : "Modality Independence: Users interacting with a web browser may do so using one or more input methods including keyboard, mouse, speech, touch, and gesture. It's critical that each user be free to use whatever input method, or combination of methods, works best for a given situation. If every potential user task is made accessible — so multiple modalities are supported — a user can choose what works best. For instance, if a user can't use or doesn't have access to a mouse, but can use and access a keyboard, the keyboard can call a modality independent control to activate an OnMouseOver event. Another example is a user on a mobile device that lacks keyboard who uses uses taps, wirelessly connected devices, and voice commands to simulate discrete or keyboard input. See Independent User Interface: Events for additional information on APIs and techniques for modality independent controls."}
+			],
+			"guidelines" : 
+			[
+				{
+					"ref_id" : "2.1",
+					"title" : "Ensure full keyboard access",
+					"url_fragment" : "gl-keyboard-access",
+					"summary" : "Every viewport has a keyboard focus (2.1.2, Level A). Users can operate all functions using just the keyboard (2.1.1, Level A), activate important or common features with shortcut keys, (2.1.6, Level A), escape keyboard traps (2.1.3, Level A), specify that selecting an item in a dropdown list or menu not activate that item (2.1.4, Level A) and use standard keys for its platform (2.1.5, Level A).",
+					"notes" : null,
+					"success_criteria" : [
+						{
+							"ref_id" : "2.1.1",
+							"title" : "Provide Full Keyboard Functionality",
+							"description" : "All functionality can be operated via the keyboard using sequential or direct keyboard commands that do not require specific timings for individual keystrokes, except where the underlying function requires input that depends on the path of the user's movement and not just the endpoints (e.g. free hand drawing). This does not forbid and should not discourage providing other input methods in addition to keyboard operation including mouse, touch, gesture and speech.",
+							"level" : "A",
+							"url_fragment" : "sc_211",
+							"notes" : null,
+							"special_cases" : null
+						},
+						{
+							"ref_id" : "2.1.2",
+							"title" : "Has Keyboard Focus",
+							"description" : "Every viewport has an active or inactive keyboard focus at all times.",
+							"level" : "A",
+							"url_fragment" : "sc_212",
+							"notes" : null,
+							"special_cases" : null
+						},
+						{
+							"ref_id" : "2.1.3",
+							"title" : "Avoid Keyboard Traps",
+							"description" : "If keyboard focus can be moved to a component using a keyboard interface (including nested user agents), then focus can be moved away from that component using only a keyboard interface. If this requires more than unmodified arrow or Tab keys (or standard exit methods like Escape), users are advised of the method for moving focus away.",
+							"level" : "A",
+							"url_fragment" : "sc_213",
+							"notes" : null,
+							"special_cases" : null
+						},
+						{
+							"ref_id" : "2.1.4",
+							"title" : "Separate Selection from Activation",
+							"description" : "The user can specify that focus and selection can be moved without the user agent or author-supplied content further changing focus, selection, or the state of controls.",
+							"level" : "A",
+							"url_fragment" : "sc_214",
+							"notes" : null,
+							"special_cases" : null
+						},
+						{
+							"ref_id" : "2.1.5",
+							"title" : "Follow Text Keyboard Conventions",
+							"description" : "The user agent follows keyboard conventions for the operating environment.",
+							"level" : "A",
+							"url_fragment" : "sc_215",
+							"notes" : null,
+							"special_cases" : null
+						},
+						{
+							"ref_id" : "2.1.6",
+							"title" : "Make Keyboard Access Efficient",
+							"description" : "The user agent user interface includes mechanisms to make keyboard access more efficient than sequential keyboard access.",
+							"level" : "A",
+							"url_fragment" : "sc_216",
+							"notes" : null,
+							"special_cases" : null
+						}
+					]
+				},
+				{
+					"ref_id" : "2.2",
+					"title" : "Provide sequential navigation",
+					"url_fragment" : "gl-sequential-navigation",
+					"summary" : "Users can use the keyboard to navigate sequentially to all the operable elements in the viewport (2.2.1, Level A) as well as between viewports (2.2.2, Level A), and the default navigation order is the document order (2.2.3, Level A). Users can optionally disable wrapping or request a signal when wrapping occurs (2.2.4, Level AA).",
+					"notes" : null,
+					"success_criteria" : [
+						{
+							"ref_id" : "2.2.1",
+							"title" : "Sequential Navigation Between Elements",
+							"description" : "The user can move the keyboard focus backwards and forwards through all recognized enabled elements in the rendered content of the current top-level viewports.",
+							"level" : "A",
+							"url_fragment" : "sc_221",
+							"notes" : null,
+							"special_cases" : null
+						},
+						{
+							"ref_id" : "2.2.2",
+							"title" : "Sequential Navigation Between Landmarks",
+							"description" : "The user can move the keyboard focus backwards and forwards between regions identified by document landmarks.",
+							"level" : "A",
+							"url_fragment" : "sc_222",
+							"notes" : [
+								{ "content" : "The user agent might also include other regions, such as viewports, in the sequential navigation." }
+							],
+							"special_cases" : null
+						},
+						{
+							"ref_id" : "2.2.3",
+							"title" : "Default Navigation Order",
+							"description" : "If the author has not specified a navigation order, the user can have the default sequential navigation order be the source order.",
+							"level" : "A",
+							"url_fragment" : "sc_223",
+							"notes" : null,
+							"special_cases" : null
+						},
+						{
+							"ref_id" : "2.2.4",
+							"title" : "Options for Wrapping in Navigation",
+							"description" : "The user can request notification when sequential navigation wraps at the beginning or end of a document, and can prevent such wrapping.",
+							"level" : "AA",
+							"url_fragment" : "sc_224",
+							"notes" : null,
+							"special_cases" : null
+						}
+					]
+				},
+				{
+					"ref_id" : "2.3",
+					"title" : "Provide direct navigation and activation",
+					"url_fragment" : "gl-direct-navigation-and-activation",
+					"summary" : "Users can navigate directly (e.g. using keyboard shortcuts) to elements (2.3.1, Level AA) with the option to immediately activate operable elements (2.3.2, Level AA). Display commands with the elements to make it easier for users to discover the commands (2.3.3 & 2.3.4, Level AA). The user can remap and save direct commands (2.3.5, Level AA).",
+					"notes" : null,
+					"success_criteria" : [
+						{
+							"ref_id" : "2.3.1",
+							"title" : "Allow Direct Navigation to Enabled Elements",
+							"description" : "The user can move keyboard focus directly to any enabled element in the rendered content.",
+							"level" : "AA",
+							"url_fragment" : "sc_231",
+							"notes" : null,
+							"special_cases" : null
+						},
+						{
+							"ref_id" : "2.3.2",
+							"title" : "Allow Direct Activation of Enabled Elements",
+							"description" : "The user can, in a single action, move keyboard focus directly to any enabled element in the rendered content and perform an activation action on that element.",
+							"level" : "AA",
+							"url_fragment" : "sc_232",
+							"notes" : null,
+							"special_cases" : null
+						},
+						{
+							"ref_id" : "2.3.3",
+							"title" : "Present Direct Commands from Rendered Content",
+							"description" : "The user can have any recognized direct commands in rendered content (e.g. accesskey, landmark) be presented with their associated elements (e.g. Alt+R to reply to a web email).",
+							"level" : "AA",
+							"url_fragment" : "sc_233",
+							"notes" : null,
+							"special_cases" : null
+						},
+						{
+							"ref_id" : "2.3.4",
+							"title" : "Present Direct Commands in User Interface",
+							"description" : "The user can have any direct commands in the UA user interface (e.g. keyboard shortcuts) be presented with their associated user interface controls (e.g. \"Ctrl+S\" displayed on the \"Save\" menu item and toolbar button)",
+							"level" : "AA",
+							"url_fragment" : "sc_234",
+							"notes" : null,
+							"special_cases" : null
+						},
+						{
+							"ref_id" : "2.3.5",
+							"title" : "Allow Customized Keyboard Commands",
+							"description" : "The user can remap any keyboard shortcut including recognized author supplied shortcuts (e.g. accesskeys) and UA user interface controls, except for conventional bindings for the operating environment (e.g. arrow keys for navigating within menus).",
+							"level" : "AA",
+							"url_fragment" : "sc_235",
+							"notes" : null,
+							"special_cases" : null
+						}	
+					]
+				},
+				{
+					"ref_id" : "2.4",
+					"title" : "Provide text search",
+					"url_fragment" : "gl-search-text",
+					"summary" : "Users can search rendered content (2.4.1, Level A) forward or backward (2.4.2, Level A) and can have the matched content highlighted in the viewport (2.4.3, Level A). The user is notified in an accessible manner if there is no match (2.4.4, Level A). Users can also search by case and for text within alternative content (2.4.5, Level AA).",
+					"notes" : null,
+					"success_criteria" : [
+						{
+							"ref_id" : "2.4.1",
+							"title" : "Text Search",
+							"description" : "The user can perform a search within rendered content, including rendered text alternatives and rendered generated content, for any sequence of printing characters from the document character set.",
+							"level" : "A",
+							"url_fragment" : "sc_241",
+							"notes" : null,
+							"special_cases" : null
+						},
+						{
+							"ref_id" : "2.4.2",
+							"title" : " Search Direction",
+							"description" : "The user can search forward or backward in rendered content.",
+							"level" : "A",
+							"url_fragment" : "sc_242",
+							"notes" : null,
+							"special_cases" : null
+						},
+						{
+							"ref_id" : "2.4.3",
+							"title" : "Match Found",
+							"description" : "When a search operation produces a match, the matched content is highlighted, the viewport is scrolled if necessary so that the matched content is within its visible area, and the user can search from the location of the match.",
+							"level" : "A",
+							"url_fragment" : "sc_243",
+							"notes" : null,
+							"special_cases" : null
+						},
+						{
+							"ref_id" : "2.4.4",
+							"title" : "Alert on Wrap or No Match",
+							"description" : "The user can choose to receive notification when there is no match to a search operation. The user can choose to receive notification when the search continues from the beginning or end of content.",
+							"level" : "A",
+							"url_fragment" : "sc_244",
+							"notes" : null,
+							"special_cases" : null
+						},
+						{
+							"ref_id" : "2.4.5",
+							"title" : "Alternative Content Search",
+							"description" : "The user can perform text searches within alternative content that is text (e.g. text alternatives for non-text content, captions) even when the alternative content is not rendered onscreen.",
+							"level" : "AA",
+							"url_fragment" : "sc_245",
+							"notes" : null,
+							"special_cases" : null
+						}
+					]
+				},
+				{
+					"ref_id" : "2.5",
+					"title" : "Provide structural navigation",
+					"url_fragment" : "gl-nav-structure",
+					"summary" : "Users can navigate (2.5.1, Level A) content hierarchy.",
+					"notes" : null,
+					"success_criteria" : [
+						{
+							"ref_id" : "2.5.1",
+							"title" : "Provide Structural Navigation by Heading and within Tables",
+							"description" : "The user agent provides at least the following types of structural navigation, where the structure types are recognized",
+							"level" : "A",
+							"url_fragment" : "sc_251",
+							"notes" : null,
+							"special_cases" : [
+								{
+									"type": "all_true",
+									"title": "By heading"
+				    				},
+								{
+									"type": "all_true",
+									"title" : "By content sections"
+				    				},
+								{
+									"type": "all_true",
+									"title" : "Within tables"
+				    				}
+
+							]
+						}	
+					]
+				},
+				{
+					"ref_id" : "2.6",
+					"title" : "Configure and store preference settings",
+					"url_fragment" : "gl-store-prefs",
+					"summary" : "Users can restore preference settings to default (2.6.2, Level A), and accessibility settings persist between sessions (2.6.1, Level A). Users can manage multiple sets of preference settings (2.6.3, Level AA), and adjust preference settings outside the user interface so the current user interface does not prevent access (2.6.4, Level AA), and transport settings to compatible systems (2.6.5, Level AA).",
+					"notes" : null,
+					"success_criteria" : [
+						{
+							"ref_id" : "2.6.1",
+							"title" : "Allow Persistent Accessibility Settings",
+							"description" : "User agent accessibility preference settings persist between sessions.",
+							"level" : "A",
+							"url_fragment" : "sc_261",
+							"notes" : [
+								{ "content" : "User agents may have a public access setting that turns this off." }
+							],
+							"special_cases" : null
+						},
+						{
+							"ref_id" : "2.6.2",
+							"title" : "Allow Restore All to Default",
+							"description" : "The user can restore all preference settings to default values.",
+							"level" : "A",
+							"url_fragment" : "sc_262",
+							"notes" : null,
+							"special_cases" : null
+						},
+						{
+							"ref_id" : "2.6.3",
+							"title" : "Allow Multiple Sets of Preference Settings",
+							"description" : "The user can save and retrieve multiple sets of user agent preference settings.",
+							"level" : "AA",
+							"url_fragment" : "sc_263",
+							"notes" : null,
+							"special_cases" : null
+						},
+						{
+							"ref_id" : "2.6.4",
+							"title" : "Allow Preference Changes from outside the User Interface",
+							"description" : "The user can adjust any preference settings required to meet the User Agent Accessibility Guidelines (UAAG) 2.0 from outside the UA user interface.",
+							"level" : "AAA",
+							"url_fragment" : "sc_264",
+							"notes" : null,
+							"special_cases" : null
+						},
+						{
+							"ref_id" : "2.6.5",
+							"title" : "Make Preference Settings Transferable",
+							"description" : "The user can transfer all compatible user agent preference settings between devices.",
+							"level" : "A",
+							"url_fragment" : "sc_265",
+							"notes" : null,
+							"special_cases" : null
+						}
+					]
+				},
+				{
+					"ref_id" : "2.7",
+					"title" : "Customize display of graphical controls",
+					"url_fragment" : "gl-configure-controls",
+					"summary" : "It's recommended that users can add, remove, reposition, and assign shortcuts to user agent controls, and restore them to their default settings",
+					"notes" : null,
+					"success_criteria" : [
+						{
+							"ref_id" : "2.7.1",
+							"title" : "Customize Display of Controls for User Interface Commands, Functions, and Add-ons",
+							"description" : "The user can customize which user agent commands, functions, and add-ons are displayed within the user agent user interface as follows:",
+							"level" : "AA",
+							"url_fragment" : "sc_271",
+							"notes" : null,
+							"special_cases" : [
+								{
+									"type": "all_true",
+									"title": "Show",
+									"description": "The user can choose to display any controls available within the user agent user interface, including user-installed add-ons. It is acceptable to limit the total number of controls that are displayed onscreen."
+								},
+								{
+									"type": "all_true",
+									"title": "Simplify",
+									"description": "The user can simplify the default user interface by choosing to display only commands essential for basic operation (e.g. by hiding some controls)."
+								},
+								{
+									"type": "all_true",
+									"title": "Reposition",
+									"description": "The user can choose to reposition individual controls within containers (e.g. toolbars or tool palettes), as well as reposition the containers themselves to facilitate physical access (e.g. to minimize hand travel on touch screens, or to facilitate preferred hand access on handheld mobile devices)."
+								},
+								{
+									"type": "all_true",
+									"title": "Assign Activation Keystrokes or Gestures",
+									"description": "The user can choose to view, assign or change default keystrokes or gestures used to activate controls."
+								},
+								{
+									"type": "all_true",
+									"title": "Reset",
+									"description": "The user has the option to reset the containers and controls to their default configuration."
+								}	
+							]
+						}	
+					]
+				},
+				{
+					"ref_id" : "2.8",
+					"title" : "Allow time-independent interaction",
+					"url_fragment" : "gl-time-independent",
+					"summary" : "Users can extend the time limits for user input when such limits are controllable by the user agent (2.8.1, Level A).",
+					"notes" : null,
+					"success_criteria" : [
+						{
+							"ref_id" : "2.8.1",
+							"title" : "Adjustable Time Limits",
+							"description" : "The UA user interface does not include time limits or at least one of the following is true:",
+							"level" : "A",
+							"url_fragment" : "sc_281",
+							"notes" : null,
+							"special_cases" : [
+								{
+									"type": "at_least_one",
+									"title": "Turn Off",
+									"description" : "Users are allowed to turn off the time limit before encountering it; or"
+				    				},
+								{
+									"type": "at_least_one",
+									"title": "Adjust",
+									"description" : "Users are allowed to adjust the time limit before encountering it over a wide range that is at least ten times the length of the default setting; or"
+				    				},
+								{
+									"type": "at_least_one",
+									"title": "Extend",
+									"description" : "Users are warned before time expires and given at least 20 seconds to extend the time limit with a simple action (e.g. \"press the space bar\"), and users are allowed to extend the time limit at least ten times; or"
+				    				},
+								{
+									"type": "at_least_one",
+									"title": "Real-time Exception",
+									"description" : "The time limit is a required part of a real-time event and no alternative to the time limit is possible; or"
+				    				},
+								{
+									"type": "at_least_one",
+									"title": "Essential Exception",
+									"description" : "The time limit is essential and extending it would invalidate the activity; or"
+				    				},
+								{
+									"type": "at_least_one",
+									"title": "20 Hour Exception",
+									"description" : "The time limit is longer than 20 hours."
+				    				}
+							]
+
+						}
+					]
+				},
+				{
+					"ref_id" : "2.9",
+					"title" : "Help users avoid flashing that could cause seizures",
+					"url_fragment" : "gl-prevent-flash",
+					"summary" : "To help users avoid seizures, the default configuration prevents the browser user interface from flashing more than three times a second above luminescence or color thresholds (2.9.1, Level A), or even below the thresholds (2.9.2, Level AAA).",
+					"notes" : null,
+					"success_criteria" : [
+						{
+							"ref_id" : "2.9.1",
+							"title" : "Three Flashes or Below Threshold",
+							"description" : "In its default configuration, the user agent does not display any UA user interface components that flashes more than three times in any one-second period, unless the flash is below general flash and red flash thresholds.",
+							"level" : "A",
+							"url_fragment" : "sc_291",
+							"notes" : null,
+							"special_cases" : null
+						},
+						{
+							"ref_id" : "2.9.2",
+							"title" : "Three Flashes",
+							"description" : "In its default configuration, the user agent does not display any UA user interface components that flashes more than three times in any one-second period (regardless of whether not the flash is below the general flash and red flash thresholds).",
+							"level" : "AAA",
+							"url_fragment" : "sc_292",
+							"notes" : null,
+							"special_cases" : null
+						}
+					]
+				},
+				{
+					"ref_id" : "2.10",
+					"title" : "Provide control of time-based media",
+					"url_fragment" : "gl-control-inaccessible-content",
+					"summary" : "The user can present placeholders for time-based media (2.10.1, Level A) and executable regions (2.10.2, Level A), or block all executable content (2.10.3, Level A), adjust playback (2.10.4, Level A), stop/pause/resume (2.10.5, Level A), navigate by time (2.10.6, Level A) or semantic structures such as chapter (2.10.7, Level AA). It is recommended that the user can adjust contrast and brightness of visual time-based media (2.10.8, Level AAA). Enable or disable tracks is included in 1.1.1 Render Alternative Content.",
+					"notes" : null,
+					"success_criteria" : [
+						{
+							"ref_id" : "2.10.1",
+							"title" : "Time-Based Media Load-Only",
+							"description" : "The user can override the play on load of recognized time-based media content such that the content is not played until explicit user request.",
+							"level" : "A",
+							"url_fragment" : "sc_2101",
+							"notes" : null,
+							"special_cases" : null
+						},
+						{
+							"ref_id" : "2.10.2",
+							"title" : "Execution Placeholder",
+							"description" : "The user can request a placeholder instead of executable content that would normally be contained within an on-screen area (e.g. Applet, Flash), until explicit user request to execute.",
+							"level" : "A",
+							"url_fragment" : "sc_2102",
+							"notes" : null,
+							"special_cases" : null
+						},
+						{
+							"ref_id" : "2.10.3",
+							"title" : "Execution Toggle",
+							"description" : "The user can turn on/off the execution of dynamic or executable content (e.g. Javascript, canvas, media).",
+							"level" : "A",
+							"url_fragment" : "sc_2103",
+							"notes" : null,
+							"special_cases" : null
+						},
+						{
+							"ref_id" : "2.10.4",
+							"title" : "Adjustable Playback Rate for Prerecorded Content",
+							"description" : "The user can adjust the playback rate of prerecorded time-based media content, such that all of the following are true:",
+							"level" : "A",
+							"url_fragment" : "sc_2104",
+							"notes" : null,
+							"special_cases" : [
+								{
+									"type": "all_true",
+									"title": "Playback Rate",
+									"description": "The user can adjust the playback rate of the time-based media tracks to between 50% and 250% of real time."
+								},
+								{
+									"type": "all_true",
+									"title": "Pitch",
+									"description": "Speech whose playback rate has been adjusted by the user maintains pitch in order to limit degradation of the speech quality."
+								},
+								{
+									"type": "all_true",
+									"title": "Synchronization",
+									"description": "Audio and video tracks remain synchronized across this required range of playback rates."
+								},
+								{
+									"type": "all_true",
+									"title": "Reset",
+									"description": "The user agent provides a function that resets the playback rate to normal (100%)."
+								}	
+							]
+						},
+						{
+							"ref_id" : "2.10.5",
+							"title" : "Stop/Pause/Resume Time-Based Media",
+							"description" : "The user can stop, pause, and resume rendered audio and animation content (e.g video, animation, changing text) that lasts three or more seconds at the default playback rate.",
+							"level" : "A",
+							"url_fragment" : "sc_2105",
+							"notes" : null,
+							"special_cases" : null
+						},
+						{
+							"ref_id" : "2.10.6",
+							"title" : "Navigation of Time-Based Media by Time",
+							"description" : "If time-based media lasts three or more seconds at the default playback rate, the user can navigate it using a continuous scale and by relative time units.",
+							"level" : "A",
+							"url_fragment" : "sc_2106",
+							"notes" : null,
+							"special_cases" : null
+						},
+						{
+							"ref_id" : "2.10.7",
+							"title" : "Navigation of Time-Based Media by Semantics",
+							"description" : "The user can navigate by semantic structure within the time-based media, such as by chapters or scenes present in the media.",
+							"level" : "AA",
+							"url_fragment" : "sc_2107",
+							"notes" : null,
+							"special_cases" : null
+						},
+						{
+							"ref_id" : "2.10.8",
+							"title" : "Video Contrast and Brightness",
+							"description" : "Users can adjust the contrast and brightness of visual time-based media.",
+							"level" : "AAA",
+							"url_fragment" : "sc_2108",
+							"notes" : null,
+							"special_cases" : null
+						}
+					]
+				},
+				{
+					"ref_id" : "2.11",
+					"title" : "Support other input devices",
+					"url_fragment" : "gl-other-devices",
+					"summary" : "User agents support platform text input devices including text input (2.11.1, Level AA).",
+					"notes" : null,
+					"success_criteria" : [
+						{
+							"ref_id" : "2.11.1",
+							"title" : "Text Input With Any Device",
+							"description" : "If an input device is supported by the platform, all user agent functionality including text input can be operated using that device.",
+							"level" : "AA",
+							"url_fragment" : "sc_2116",
+							"notes" : null,
+							"special_cases" : null
+						}
+					]
+				}
+			]
+		},
+		{
+			"ref_id" : "3",
+			"title" : "Ensure that the user interface is understandable",
+			"url_fragment" : "principle-understandable",
+			"notes" : null,
+			"guidelines" : 
+			[
+				{
+					"ref_id" : "3.1",
+					"title" : "Help users avoid and correct mistakes",
+					"url_fragment" : "gl-avoid-mistakes",
+					"summary" : "Users can undo text entry (3.1.1, Level A), avoid or undo settings changes (3.1.2, Level A), and receive indications of progress activity (3.1.3, Level A). It is recommended that users can have their text checked for spelling errors (3.1.4, Level AA), go back after navigating (3.1.5, Level AA), have form submissions require confirmation (3.1.6, Level AA), have auto-form fill of basic information (3.1.7, Level AA), and save form entry data with a local save (3.1.8, Level AA).",
+					"notes" : null,
+					"success_criteria" : [
+						{
+							"ref_id" : "3.1.1",
+							"title" : "Text Entry Undo",
+							"description" : "The user can reverse recognized text entry actions prior to submission.",
+							"level" : "A",
+							"url_fragment" : "sc_311",
+							"notes" : { "content" : "Submission can be triggered in many different ways, such as clicking a submit button, typing a key in a control with an onkeypress event, or by a script responding to a timer."},
+							"special_cases" : null
+						},
+						{
+							"ref_id" : "3.1.2",
+							"title" : "Settings Changes can be Reversed or Confirmed",
+							"description" : "If the user agent provides mechanisms for changing its user interface settings, it either allows the user to reverse the setting changes, or the user agent can require user confirmation to proceed.",
+							"level" : "A",
+							"url_fragment" : "sc_312",
+							"notes" : null,
+							"special_cases" : null
+						},
+						{
+							"ref_id" : "3.1.3",
+							"title" : "Retrieval Progress",
+							"description" : "By default, the user agent shows the state of content retrieval activity.",
+							"level" : "A",
+							"url_fragment" : "sc_313",
+							"notes" : null,
+							"special_cases" : null
+						},
+						{
+							"ref_id" : "3.1.4",
+							"title" : "Spell Check",
+							"description" : "The user can have spelling assistance for editable text in rendered content.",
+							"level" : "AA",
+							"url_fragment" : "sc_314",
+							"notes" : null,
+							"special_cases" : null						},
+						{
+							"ref_id" : "3.1.5",
+							"title" : "Back Button",
+							"description" : "The user can reverse recognized navigation between web addresses (e.g. standard \"back button\" functionality).",
+							"level" : "AA",
+							"url_fragment" : "sc_315",
+							"notes" : null,
+							"special_cases" : null
+						},
+						{
+							"ref_id" : "3.1.6",
+							"title" : "Form Submission Confirm",
+							"description" : "The user can specify whether or not recognized form submissions must be confirmed.",
+							"level" : "AA",
+							"url_fragment" : "sc_316",
+							"notes" : null,
+							"special_cases" : null
+						},
+						{
+							"ref_id" : "3.1.7",
+							"title" : "Form Auto-Fill",
+							"description" : "The user can have the following information stored and used to auto-fill form fields by request:",
+							"level" : "AA",
+							"url_fragment" : "sc_317",
+							"notes" : null,
+							"special_cases" : [
+								{
+									"type": "all_true",
+									"title": "user's name"
+								},
+								{
+									"type": "all_true",
+									"title": "user's email address"
+								},
+								{
+									"type": "all_true",
+									"title": "user's phone number"
+								}	
+							]
+						},
+						{
+							"ref_id" : "3.1.8",
+							"title" : "Save Form Entries",
+							"description" : "If the user agent provides a feature to save local versions of web content, then any form fields the user has filled retain any entries in the saved version.",
+							"level" : "AA",
+							"url_fragment" : "sc_318",
+							"notes" : null,
+							"special_cases" : null
+						}
+					]
+				},
+				{
+					"ref_id" : "3.2",
+					"title" : "Document the user agent user interface including accessibility features",
+					"url_fragment" : "gl-doc-access-features",
+					"summary" : "User documentation is available in an accessible format (3.2.1, Level A), it includes accessibility features (3.2.2, Level A), it documents all the user features (3.2.3, Level AA), it delineates differences between versions (3.2.4, Level AA), and provides a centralized view of conformance UAAG2.0 (3.2.5, Level AAA).",
+					"notes" : null,
+					"success_criteria" : [
+						{
+							"ref_id" : "3.2.1",
+							"title" : "Accessible Documentation",
+							"description" : "Product documentation is available in a format that meets success criteria of WCAG 2.0 level \"A\" or greater.",
+							"level" : "A",
+							"url_fragment" : "sc_321",
+							"notes" : null,
+							"special_cases" : null
+						},
+						{
+							"ref_id" : "3.2.2",
+							"title" : "Describe Accessibility Features",
+							"description" : "For each user agent feature that is used to meet UAAG 2.0, at least one of the following is true:",
+							"level" : "A",
+							"url_fragment" : "sc_322",
+							"notes" : null,
+							"special_cases" : [
+								{
+									"type": "at_least_one",
+									"title": "Described in the Documentation",
+									"description" : "Use of the feature is explained in the user agent's documentation; or"
+				    				},
+								{
+									"type": "at_least_one",
+									"title": "Described in the Interface",
+									"description" : "Use of the feature is explained in the UA user interface; or"
+				    				},
+								{
+									"type": "at_least_one",
+									"title": "Platform Service",
+									"description" : "The feature is a service provided by an underlying platform; or"
+				    				},
+								{
+									"type": "at_least_one",
+									"title": "Not Used by Users",
+									"description" : "The feature is not used directly by users (e.g., passing information to a platform accessibility service)."
+				    				}
+							]
+
+						},
+						{
+							"ref_id" : "3.2.3",
+							"title" : "Document All Features",
+							"description" : "For each user agent feature, at least one of the following is true:",
+							"level" : "AA",
+							"url_fragment" : "sc_323",
+							"notes" : null,
+							"special_cases" : [
+								{
+									"type": "at_least_one",
+									"title": "Described in the Documentation",
+									"description" : "Use of the feature is explained in the user agent's documentation; or"
+				    				},
+								{
+									"type": "at_least_one",
+									"title": "Described in the Interface",
+									"description" : "Use of the feature is explained in the UA user interface; or"
+				    				},
+								{
+									"type": "at_least_one",
+									"title": "Platform Service",
+									"description" : "The feature is a service provided by an underlying platform; or"
+				    				},
+								{
+									"type": "at_least_one",
+									"title": "Not Used by Users",
+									"description" : "The feature is not used directly by users (e.g., passing information to a platform accessibility service)."
+				    				}
+							]
+
+						},
+						{
+							"ref_id" : "3.2.4",
+							"title" : "Changes Between Versions",
+							"description" : "Changes to features that meet UAAG 2.0 success criteria since the previous user agent release are documented.",
+							"level" : "AA",
+							"url_fragment" : "sc_324",
+							"notes" : null,
+							"special_cases" : null						},
+						{
+							"ref_id" : "3.2.5",
+							"title" : "Centralized View",
+							"description" : "There is a dedicated section of the documentation that presents a view of all features of the user agent necessary to meet the requirements of User Agent Accessibility Guidelines 2.0.",
+							"level" : "AAA",
+							"url_fragment" : "sc_325",
+							"notes" : null,
+							"special_cases" : null
+						}
+					]
+				},
+				{
+					"ref_id" : "3.3",
+					"title" : "Make the user agent behave in predictable ways",
+					"url_fragment" : "gl-predictable-operation",
+					"summary" : "Users can prevent non-requested focus changes (3.3.1, Level A).",
+					"notes" : null,
+					"success_criteria" : [
+						{
+							"ref_id" : "3.3.1",
+							"title" : "Avoid Unpredictable Focus",
+							"description" : "The user can prevent focus changes that are not a result of explicit user request.",
+							"level" : "A",
+							"url_fragment" : "sc_311",
+							"notes" : null,
+							"special_cases" : null
+						}
+					]
+				}
+			]
+		},
+		{
+			"ref_id" : "4",
+			"title" : "Facilitate programmatic access",
+			"url_fragment" : "principle-AT-access",
+			"notes" : null,
+			"guidelines" : 
+			[
+				{
+					"ref_id" : "4.1",
+					"title" : "Facilitate programmatic access to assistive technology",
+					"url_fragment" : "gl-AT-access",
+					"summary" : "The user agent supports platform accessibility services (4.1.1, Level A), including providing information about all controls and operation (4.1.2, Level A), access to DOMs when platform accessibility services are not available (4.1.4, Level A). Controls can be adjusted programmatically (4.1.5, Level A). Where something can't be made accessible, provide an accessible alternative version, such as a standard window in place of a customized window (4.1.3, Level A).",
+					"notes" : [
+						{ "content" : "UAAG 2.0 assumes that a platform accessibility service will be built on top of underlying security architectures that will allow user agents to comply with both the success criteria and security needs." }
+					],
+					"success_criteria" : [
+						{
+							"ref_id" : "4.1.1",
+							"title" : "Support Platform Accessibility Services",
+							"description" : "The user agent supports relevant platform accessibility services.",
+							"level" : "A",
+							"url_fragment" : "sc_411",
+							"notes" : null,
+							"special_cases" : null
+						},
+						{
+							"ref_id" : "4.1.2",
+							"title" : "Expose Accessible Properties",
+							"description" : "For all user interface components (including UA user interface, rendered content, and generated content) the user agent makes available the following properties and any change notifications via a platform accessibility service:",
+							"level" : "A",
+							"url_fragment" : "sc_412",
+							"notes" : null,
+							"special_cases" : [
+								{
+									"type": "all_true",
+									"title": "Name, Role, State"
+								},
+								{
+									"type": "all_true",
+									"title": "Value"
+								},
+								{
+									"type": "all_true",
+									"title": "Selection"
+								},
+								{
+									"type": "all_true",
+									"title": "Focus"
+								},
+								{
+									"type": "all_true",
+									"title": "Bounding dimensions and coordinates"
+								},
+								{
+									"type": "all_true",
+									"title": "Font family of text"
+								},
+								{
+									"type": "all_true",
+									"title": "Foreground and background color for text"
+								},
+								{
+									"type": "all_true",
+									"title": "Highlighting"
+								},
+								{
+									"type": "all_true",
+									"title": "Keyboard commands"
+								},
+								{
+									"type": "all_true",
+									"title": "Caret position"
+								},
+								{
+									"type": "all_true",
+									"title": "Explicitly defined relationships (e.g. ARIA relationships [ARIA 1.0])"
+								}
+							]
+
+						},
+						{
+							"ref_id" : "4.1.3",
+							"title" : "Provide Equivalent Accessible Alternatives",
+							"description" : "If UA user interface functionality cannot be exposed through platform accessibility services, then the user agent provides equivalent functionality that can be exposed through the platform accessibility service.",
+							"level" : "A",
+							"url_fragment" : "sc_413",
+							"notes" : null,
+							"special_cases" : null
+						},
+						{
+							"ref_id" : "4.1.4",
+							"title" : "DOMs Programmatically Available as fallback",
+							"description" : "If the user agent accessibility API does not provide sufficient information to one or more platform accessibility services, then Document Object Models (DOM), must be made programmatically available to assistive technologies.",
+							"level" : "A",
+							"url_fragment" : "sc_414",
+							"notes" : null,
+							"special_cases" : null						},
+						{
+							"ref_id" : "4.1.5",
+							"title" : "Make Content Interaction Programmatically Available",
+							"description" : "If the user can interact with content (e.g. by checking a box or editing a text area), the same degree of interaction is programmatically available.",
+							"level" : "A",
+							"url_fragment" : "sc_415",
+							"notes" : null,
+							"special_cases" : null
+						},
+						{
+							"ref_id" : "4.1.6",
+							"title" : "Form Submission Confirm",
+							"description" : "The user can specify whether or not recognized form submissions must be confirmed.",
+							"level" : "AA",
+							"url_fragment" : "sc_416",
+							"notes" : null,
+							"special_cases" : null
+						},
+						{
+							"ref_id" : "4.1.7",
+							"title" : "Form Auto-Fill",
+							"description" : "The user can have the following information stored and used to auto-fill form fields by request:",
+							"level" : "AA",
+							"url_fragment" : "sc_417",
+							"notes" : null,
+							"special_cases" : [
+								{
+									"type": "all_true",
+									"title": "user's name"
+								},
+								{
+									"type": "all_true",
+									"title": "user's email address"
+								},
+								{
+									"type": "all_true",
+									"title": "user's phone number"
+								}	
+							]
+						},
+						{
+							"ref_id" : "4.1.8",
+							"title" : "Save Form Entries",
+							"description" : "If the user agent provides a feature to save local versions of web content, then any form fields the user has filled retain any entries in the saved version.",
+							"level" : "AA",
+							"url_fragment" : "sc_418",
+							"notes" : null,
+							"special_cases" : null
+						}
+					]
+				}
+			]
+		},
+		{
+			"ref_id" : "5",
+			"title" : "Comply with applicable specifications and conventions",
+			"url_fragment" : "principle-follow-specs",
+			"notes" : null,
+			"guidelines" : 
+			[
+				{
+					"ref_id" : "5.1",
+					"title" : "Comply with applicable specifications and conventions",
+					"url_fragment" : "gl-obs-env-conventions",
+					"summary" : "When the browser's controls are authored in HTML or similar standards, they need to meet W3C's Web Content Accessibility Guidelines (5.1.1, Levels A, AA, AAA). The user agent supports the accessibility features of content formats (5.1.2, Level A) and of the platform (5.1.3, Level A), allows handling of unrendered technologies (5.1.4, Level A), allows alternative viewers (5.1.4, Level AA), and allows users to report accessibility issues (5.1.5, Level AAA).",
+					"notes" : null,
+					"success_criteria" : [
+						{
+							"ref_id" : "5.1.1",
+							"title" : "Comply with WCAG",
+							"description" : "Web-based UA user interfaces meet the WCAG 2.0 success criteria.",
+							"level" : "A,AA,AAA",
+							"url_fragment" : "sc_511",
+							"notes" : [
+								{ "content" : "This success criterion does not apply to native UA user interfaces, but does include any parts of native user agents that are web-based (e.g. help systems). However, it is recommended that developers of native user agent user interfaces follow the Guidance on Applying WCAG 2.0 to Non-Web Information and Communications Technologies (WCAG2ICT)" }
+							],
+							"special_cases" : null
+						},
+						{
+							"ref_id" : "5.1.2",
+							"title" : "Implement Accessibility Features of Web Content Technology Specifications",
+							"description" : "Implement the accessibility features of web content technology specifications. Accessibility features are those that are either",
+							"level" : "A",
+							"url_fragment" : "sc_512",
+							"notes" : [
+								{
+									"content" : "If a conformance claim is filed, cite the implemented specifications in the conformance claim. See Components of a UAAG 2.0 Conformance Claim - #9 Web Content Technologies.",
+									"content" : "When a rendering requirement of another specification contradicts a requirement of UAAG 2.0, the user agent can disregard the rendering requirement of the other specification and still satisfy this guideline."
+								}
+							],
+							"special_cases" : [
+								{
+									"type": "at_least_one",
+									"title": "Identified as such in the content specifications or"
+				    				},
+								{
+									"type": "at_least_one",
+									"title": "Allow authors to satisfy a requirement of WCAG 2.0"
+				    				}
+							]
+
+						},
+						{
+							"ref_id" : "5.1.3",
+							"title" : "Implement Accessibility Features of the Platform",
+							"description" : "If the user agent contains native user interfaces, then those native user interfaces follow user interface accessibility guidelines for the platform.",
+							"level" : "A",
+							"url_fragment" : "sc_513",
+							"notes" : null,
+							"special_cases" : null
+						},
+						{
+							"ref_id" : "5.1.4",
+							"title" : "Allow Content Elements to be Rendered in Alternative Viewers",
+							"description" : "The user can select content elements and have them rendered in alternative viewers.",
+							"level" : "AA",
+							"url_fragment" : "sc_514",
+							"notes" : null,
+							"special_cases" : null						},
+						{
+							"ref_id" : "5.1.5",
+							"title" : "Enable Reporting of User Agent Accessibility Faults",
+							"description" : "The user agent provides a mechanism for users to report user agent accessibility issues.",
+							"level" : "AAA",
+							"url_fragment" : "sc_515",
+							"notes" : null,
+							"special_cases" : null
+						}
+					]
+				}
+			]
+		}
+	]
+}
