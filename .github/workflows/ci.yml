@@ -30,7 +30,7 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
-          npm ci
+          npm install uaag-as-json
           echo Add another line.
           echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
           echo "🖥️ The workflow is now ready to test your code on the runner in github_workspace: ${{ github.workspace }}."
