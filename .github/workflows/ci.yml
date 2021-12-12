@@ -26,6 +26,15 @@ jobs:
       # Details can be seen here: https://github.com/actions/checkout
       - uses: actions/checkout@v2
       
+      - name: Run a multi-line script
+        run: |
+          echo Add other actions to build,
+          echo test, and deploy your project.
+          npm ci
+          echo Add another line.
+          echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
+          echo "🖥️ The workflow is now ready to test your code on the runner in github_workspace: ${{ github.workspace }}."
+      
       - name: List files in the repository
         run: |
           pwd
