@@ -460,7 +460,7 @@ function createGuideline (uaagGuideline, pNode, tocpNode) {
 		if (filters["guidelineChk"].checked) {
 			createHTMLElement(document, "h" + hl, {"parentNode":guidelineSect, "class":"guideline", "textNode":"Guideline " + uaagGuideline["ref_id"] + " - " + uaagGuideline["title"]});
 			if (filters["infoLinkChk"].checked) createLinks(guidelineSect, uaagGuideline["url_fragment"], uaagGuideline["ref_id"]);
-			if (filters["summaryChk"].checked) createHTMLElement(document, "p", {"parentNode":guidelineSect, "class":"summary", "textNode":"Rationale: " + uaagGuideline["summary"]});
+			if (filters["summaryChk"].checked) createHTMLElement(document, "p", {"parentNode":guidelineSect, "class":"summary", "textNode":"Summary: " + uaagGuideline["summary"]});
 			if (uaagGuideline["notes"] && filters["glnotesChk"].checked) {
 				hl++;
 				let guidelineNotesSect = createHTMLElement(document, "section", {"parentNode":guidelineSect, "class":"guidelineNotesSect"});
