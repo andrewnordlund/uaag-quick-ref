@@ -19,10 +19,13 @@ fi
 mkdir dist build
 cp src/* build/
 cp build/* dist/
-if [ -e "node_modules/uaag-as-json/uaag.json" ]; then
+if [ ! -e "node_modules/uaag-as-json/uaag.json" ]; then
+  echo "Installing uaag module"
   npm install uaag-as-json --prefix .
   ls -Rl
   cp node_modules/uaag-as-json/uaag.json dist/
+else
+  echo "Not installing module"
 fi
 ls -Rl
 
