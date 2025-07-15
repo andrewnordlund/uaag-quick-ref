@@ -24,36 +24,41 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       # Details can be seen here: https://github.com/actions/checkout
-      - uses: actions/checkout@v2
+      - name: Checkout Step
+      - uses: actions/checkout@v4
       
-      - name: Run a multi-line script
+      - name: Copy files to dist
         run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
-          npm install uaag-as-json
-          echo Add another line.
-          echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
-          echo "🖥️ The workflow is now ready to test your code on the runner in github_workspace: ${{ github.workspace }}."
-      
-      - name: List files in the repository
+          scripts/build.sh
+      - name: Set remote path
+        id: set_path
         run: |
-          pwd
-          DIR="./node_modules/uaag-as-json/"
-          FILE="uaag.json"
-          ls -al $DIR
-          #ls -al ./node_modules
-          #ls -al ./node_modules/uaag-as-json
-          if [[ -f $DIR$FILE ]]; then
-            echo "$DIR$FILE exists."
-            cp $DIR$FILE ./
-          else 
-            echo "$DIR$FILE: (./node_modules/atag-as-json/atag.json) does not exist."
+          echo "Current branch is: ${{ github.ref_name }}"
+         
+          if [ "${{ github.ref_name }}" = "main" ]; then
+            REMOTE_PATH="nordburg.ca"
+          else
+            REMOTE_PATH="dev.nordburg.ca"
           fi
-      - run: echo "🍏 This job's status is ${{ job.status }}."
+
+          echo "REMOTE_PATH=$REMOTE_PATH" >> $GITHUB_ENV
+          echo "Remote path: $REMOTE_PATH"
+ 
+      - name: Deploy using Rsync
+        uses: burnett01/rsync-deployments@6.0.0
+        with:
+          switches: -avrh --delete
+          path: dist/
+          remote_path: /home/${{ vars.SSH_USERNAME }}/www/${{ env.REMOTE_PATH }}/public_html/rsyncTest/
+          remote_host: ${{ vars.SSH_HOST }}
+          remote_port: 18765 
+          remote_user: ${{ vars.SSH_USERNAME }}
+          remote_key: ${{ secrets.SSH_PRIVATE_KEY }}
 
       - name: Deploy to GitHub Pages
+        if: ${{ github.ref_name == 'main' }}
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./
+          publish_dir: dist/
           publish_branch: prod  # default: gh-pages
