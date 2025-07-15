@@ -22,7 +22,7 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       # Details can be seen here: https://github.com/actions/checkout
       - name: Checkout Step
-      - uses: actions/checkout@v4
+        uses: actions/checkout@v4
       
       - name: Copy files to dist
         run: |
