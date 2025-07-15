@@ -4,11 +4,8 @@ name: CI
 
 # Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    branches: [main,dev]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -25,7 +22,7 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       # Details can be seen here: https://github.com/actions/checkout
       - name: Checkout Step
-      - uses: actions/checkout@v4
+        uses: actions/checkout@v4
       
       - name: Copy files to dist
         run: |
