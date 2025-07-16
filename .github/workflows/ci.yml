@@ -59,13 +59,8 @@ jobs:
           ls -Rl
       - name: Deploy to GitHub Pages
         if: ${{ github.ref_name == 'main' }}
-#        uses: JamesIves/github-pages-deploy-action@v4
-#        with:
-#          folder: dist
-#          branch: prod
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
-          publish_branch: prod  # default: gh-pages
-#          force_orphan: true
+          publish_branch: prod
