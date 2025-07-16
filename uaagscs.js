@@ -16,7 +16,7 @@ let liveRegion = null;
 let showHideBtn = null;
 let sep="|";
 let leftPanel = null;
-let version =1.1
+let version =1.2
 
 let filters = {
 	"principleChk" : null,
