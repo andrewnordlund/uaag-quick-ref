@@ -64,3 +64,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
 #publish_dir: ./dist
           publish_branch: prod  # default: gh-pages
+          force_orphan: true
