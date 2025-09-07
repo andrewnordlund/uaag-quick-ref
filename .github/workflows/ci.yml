@@ -44,7 +44,7 @@ jobs:
       - name: Deploy using Rsync
         uses: burnett01/rsync-deployments@6.0.0
         with:
-          switches: -avrh --delete
+          switches: -rlpcgoDv --delete
           path: dist/
           remote_path: /home/${{ vars.SSH_USERNAME }}/www/${{ env.REMOTE_PATH }}/public_html/a11y/uaag-quick-ref/
           remote_host: ${{ vars.SSH_HOSTNAME }}
