@@ -33,9 +33,9 @@ jobs:
           echo "Current branch is: ${{ github.ref_name }}"
          
           if [ "${{ github.ref_name }}" = "main" ]; then
-            REMOTE_PATH="nordburg.ca"
+            REMOTE_PATH=${{ vars.REMOTE_PATH_PROD }}
           else
-            REMOTE_PATH="dev.nordburg.ca"
+            REMOTE_PATH=${{ vars.REMOTE_PATH_DEV }}
           fi
 
           echo "REMOTE_PATH=$REMOTE_PATH" >> $GITHUB_ENV
@@ -46,7 +46,7 @@ jobs:
         with:
           switches: -rlpcgoDv --delete
           path: dist/
-          remote_path: /home/${{ vars.SSH_USERNAME }}/www/${{ env.REMOTE_PATH }}/public_html/a11y/uaag-quick-ref/
+          remote_path: ${{ env.REMOTE_PATH }}
           remote_host: ${{ vars.SSH_HOSTNAME }}
           remote_port: ${{ vars.SSH_PORT }} 
           remote_user: ${{ vars.SSH_USERNAME }}
