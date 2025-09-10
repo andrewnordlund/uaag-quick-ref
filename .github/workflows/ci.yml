@@ -51,12 +51,6 @@ jobs:
           remote_port: ${{ vars.SSH_PORT }} 
           remote_user: ${{ vars.SSH_USERNAME }}
           remote_key: ${{ secrets.SSH_PRIVATE_KEY }}
-      - name: Are files still in dist
-        run: |
-          echo "Contents:"
-          mkdir public
-          cp dist/* public/
-          ls -Rl
       - name: Deploy to GitHub Pages
         if: ${{ github.ref_name == 'main' }}
         uses: peaceiris/actions-gh-pages@v4
